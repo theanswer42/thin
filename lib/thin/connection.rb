@@ -41,9 +41,10 @@ module Thin
       trace { data }
       process if @request.parse(data)
     rescue InvalidRequest => e
-      log "!! Invalid request"
+      log "!! Invalid request!!"
       log_error e
-      close_connection
+      send_data "HTTP/1.0 404 Not Found\r\nConnection: close\r\nContent-Type: text/plain\r\n\r\nInvalid Request!\r\n"
+      #close_connection
     end
 
     # Called when all data was received and the request

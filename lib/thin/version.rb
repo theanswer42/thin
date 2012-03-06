@@ -6,7 +6,7 @@ module Thin
   module VERSION #:nodoc:
     MAJOR    = 1
     MINOR    = 2
-    TINY     = 11
+    TINY     = 13
     
     STRING   = [MAJOR, MINOR, TINY].join('.')
     
